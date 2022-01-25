@@ -121,6 +121,7 @@ function gameInit() {
 }
 
 function gameRestart() {
+
     _gameBBList = [];
     _gameBBListIndex = 0;
     _gameScore = 0;
@@ -246,12 +247,10 @@ function gameLayerMoveNextRow() {
 }
 
 function gameTapEvent(e) {
-   
-    if (a == 0)
-    {
+    if (a == 0) {
         createjs.Sound.play("bgm");
-        a = 1;
     }
+    a = 1;
     if (_gameOver) {
         return false;
     }
@@ -266,8 +265,7 @@ function gameTapEvent(e) {
         blockSize) || (p.cell == 2 && x > 2 * blockSize && x < 3 * blockSize) || (p.cell == 3 && x > 3 * blockSize)) {
         if (!_gameStart) {
             gameStart();
-            a = 0;
-        
+        }
         createjs.Sound.play("tap");
         tar = document.getElementById(p.id);
         tar.className = tar.className.replace(_ttreg, ' tt$1');
@@ -425,4 +423,3 @@ document.onkeydown = function (e) {
         return false
     }
 };
-    
